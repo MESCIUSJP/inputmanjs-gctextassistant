@@ -94,8 +94,7 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-// APIエンドポイントより後ろで、他のどのルートにも一致しないGETリクエストを処理
-// `/api/` で始まらないすべてのGETリクエストをキャッチする正規表現
-app.get(/^(?!\/api\/).*$/, (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
-});
+// フォールバック設定
+//app.get(/^(?!\/api\/).*$/, (req, res) => {
+//  res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
+//});
