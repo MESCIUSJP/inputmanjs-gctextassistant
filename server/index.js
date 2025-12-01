@@ -44,6 +44,9 @@ const server = app.listen(PORT, () => {
 });
 process.on('SIGINT', () => server.close(() => process.exit(0)));
 
+app.get('/', (req, res) => {
+  res.send('Server is running.');
+});
 app.post('/api/chat', async (req, res) => {
   try {
     const { systemPrompt, userPrompt, temperature, stream = false } = req.body;
